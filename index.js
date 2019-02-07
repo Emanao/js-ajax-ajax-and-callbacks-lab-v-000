@@ -2,7 +2,9 @@ function searchRepositories() {
     $(document).ready(function() {
         const q = $('#searchTerms').val();
         console.log(q);
-        $.get(`https://api.github.com/search/repositories?q=${q}`).done(showRepositories);
+        $.get(`https://api.github.com/search/repositories?q=${q}`)
+        .done(showRepositories)
+        .fail(error => { displayError() });;
         /*$.get(`https://api.github.com/search/repositories?q=${q}`, function(data) {
                 $("#results").html(data.items.map(r => renderRepoData(r)));
             })

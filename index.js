@@ -19,14 +19,15 @@ function getCommits(el) {
     console.log(`owner:${owner} repo:${repo}`)
     $(document).ready(function() {
       $.get(`https://api.github.com/repos/${owner}/${repo}/commits`)
-      .done(function(data) {
-          const src = $('#commit-template').text();
-          const template = Handlebars.compile(src);
-          const repoList = template(data);
-          $("#details").html(repoList);
-        })
-        .fail(error => { displayError() });;
-      });
+      .done(showCommits)
+      .fail(error => { displayError() });
+    });
+}
+function showCommits(data){
+  const src = $('#commit-template').text();
+  const template = Handlebars.compile(src);
+  const repoList = template(data);
+  $("#details").html(repoList);
 }
 
 function displayError() {

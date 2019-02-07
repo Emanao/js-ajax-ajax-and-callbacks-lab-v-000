@@ -19,6 +19,10 @@ function showCommits(el) {
     $(document).ready(function() {
       $.get(`https://api.github.com/repos/${owner}/${repo}/commits`)
       .done(function(data) {
+          const src = $('#commit-template').text();
+          const template = Handlebars.compile(src);
+          const repoList = template(data.items);
+          $("#results").html(repoList);
                $("#details").html(data));
           }))
         // $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data) {

@@ -7,12 +7,14 @@ function searchRepositories() {
         .fail(error => { displayError() });
     });
 }
+
 function showRepositories(data){
   const src = $('#repository-template').text();
   const template = Handlebars.compile(src);
   const repoList = template(data.items);
   $("#results").html(repoList);
 }
+
 function getCommits(el) {
     const owner = el.dataset.owner;
     const repo = el.dataset.repository;
@@ -23,6 +25,7 @@ function getCommits(el) {
       .fail(error => { displayError() });
     });
 }
+
 function showCommits(data){
   const src = $('#commit-template').text();
   const template = Handlebars.compile(src);

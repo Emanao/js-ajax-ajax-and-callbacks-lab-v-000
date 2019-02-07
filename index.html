@@ -58,9 +58,11 @@
       {{/each}}
     </script>
     <script id="commit-template" type="text/x-handlebars-template">
-      <p>SHA: ${commits.sha}</p>
-      <p>Author: ${commits.author.login}</p>
-      <p>Avatar: <img src="${commits.author.avatar_url}"></p>
+      {{#each this}}
+        <p>SHA: {{sha}}</p>
+        <p>Author: {{author.login}}</p>
+        <p>Avatar: <img src="{{author.avatar_url}}"></p>
+      {{/each}}
     </script>
 
 </body>

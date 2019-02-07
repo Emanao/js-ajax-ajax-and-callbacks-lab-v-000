@@ -42,6 +42,7 @@
         </div>
     </div>
     <script src="jquery-3.1.0.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.js"></script>
     <script src="index.js"></script>
     <script id="repository-template" type="text/x-handlebars-template">
@@ -54,7 +55,7 @@
         Avatar: <img src="{{owner.avatar_url}}"> </br>
         Name: {{owner.login}} </br>
         Url: <a href="#">{{owner.html_url}}</a> </br>
-        <a href="#" data-owner="{{owner.login}}" data-repository="{{name}}" onclick="getCommits(this)">Show Commits</a>
+        <a href="#" data-owner="{{owner.login}}" data-repository="{{name}}" onclick="showCommits(this)">Show Commits</a>
       {{/each}}
     </script>
 </body>

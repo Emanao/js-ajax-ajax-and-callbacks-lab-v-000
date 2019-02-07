@@ -29,7 +29,7 @@ function showCommits(el) {
         //         $("#details").html(data.map(c => renderCommitData(c)));
         //     })
         //     .fail(error => { displayError() });
-    });
+    //});
 }
 
 // function renderCommitData(commits) {

@@ -17,10 +17,11 @@ function showCommits(el) {
     const owner = el.dataset.owner;
     const repo = el.dataset.repository;
     $(document).ready(function() {
-        $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data) {
-                $("#details").html(data.map(c => renderCommitData(c)));
-            })
-            .fail(error => { displayError() });
+      $.get(`https://api.github.com/repos/${owner}/${repo}/commits`);
+        // $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data) {
+        //         $("#details").html(data.map(c => renderCommitData(c)));
+        //     })
+        //     .fail(error => { displayError() });
     });
 }
 

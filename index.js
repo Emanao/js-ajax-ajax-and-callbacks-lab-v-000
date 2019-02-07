@@ -22,8 +22,7 @@ function showCommits(el) {
           const src = $('#commit-template').text();
           const template = Handlebars.compile(src);
           const repoList = template(data.items);
-          $("#results").html(repoList);
-               $("#details").html(data));
+          $("#details").html(repoList));
           }))
         // $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data) {
         //         $("#details").html(data.map(c => renderCommitData(c)));

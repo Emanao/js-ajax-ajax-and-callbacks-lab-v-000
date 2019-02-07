@@ -13,7 +13,7 @@ function showRepositories(data){
   const repoList = template(data.items);
   $("#results").html(repoList);
 }
-function showCommits(el) {
+function getCommits(el) {
     const owner = el.dataset.owner;
     const repo = el.dataset.repository;
     console.log(`owner:${owner} repo:${repo}`)
@@ -27,12 +27,6 @@ function showCommits(el) {
         })
         .fail(error => { displayError() });;
       });
-}
-function showInformation(template-name, anchor, data){
-  const src = $(template-name).text();
-  const template = Handlebars.compile(src);
-  const repoList = template(data);
-  $(anchor).html(repoList);
 }
 
 function displayError() {

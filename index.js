@@ -4,7 +4,7 @@ function searchRepositories() {
         console.log(q);
         $.get(`https://api.github.com/search/repositories?q=${q}`)
         .done(showRepositories)
-        .fail(error => { displayError() });;
+        .fail(error => { displayError() });
     });
 }
 function showRepositories(data){
@@ -24,21 +24,16 @@ function showCommits(el) {
           const template = Handlebars.compile(src);
           const repoList = template(data);
           $("#details").html(repoList);
-        })});
-        // $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data) {
-        //         $("#details").html(data.map(c => renderCommitData(c)));
-        //     })
-        //     .fail(error => { displayError() });
-    //});
+        })
+        .fail(error => { displayError() });;
+      });
 }
-
-// function renderCommitData(commits) {
-//     return `
-//     <p>SHA: ${commits.sha}</p>
-//     <p>Author: ${commits.author.login}</p>
-//     <p>Avatar: <img src="${commits.author.avatar_url}"></p>
-//     `
-// }
+function showInformation(template-name, anchor, data){
+  const src = $(template-name).text();
+  const template = Handlebars.compile(src);
+  const repoList = template(data);
+  $(anchor).html(repoList);
+}
 
 function displayError() {
     $("#errors").html("I'm sorry, there's been an error. Please try again.")

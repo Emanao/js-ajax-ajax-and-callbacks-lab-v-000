@@ -17,7 +17,10 @@ function showCommits(el) {
     const owner = el.dataset.owner;
     const repo = el.dataset.repository;
     $(document).ready(function() {
-      $.get(`https://api.github.com/repos/${owner}/${repo}/commits`);
+      $.get(`https://api.github.com/repos/${owner}/${repo}/commits`)
+      .done(function(data) {
+               $("#details").html(data));
+          }))
         // $.get(`https://api.github.com/repos/${owner}/${repo}/commits`, function(data) {
         //         $("#details").html(data.map(c => renderCommitData(c)));
         //     })
@@ -25,13 +28,13 @@ function showCommits(el) {
     });
 }
 
-function renderCommitData(commits) {
-    return `
-    <p>SHA: ${commits.sha}</p>
-    <p>Author: ${commits.author.login}</p>
-    <p>Avatar: <img src="${commits.author.avatar_url}"></p>
-    `
-}
+// function renderCommitData(commits) {
+//     return `
+//     <p>SHA: ${commits.sha}</p>
+//     <p>Author: ${commits.author.login}</p>
+//     <p>Avatar: <img src="${commits.author.avatar_url}"></p>
+//     `
+// }
 
 function displayError() {
     $("#errors").html("I'm sorry, there's been an error. Please try again.")

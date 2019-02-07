@@ -54,7 +54,7 @@
         Avatar: <img src="{{owner.avatar_url}}"> </br>
         Name: {{owner.login}} </br>
         Url: <a href="#">{{owner.html_url}}</a> </br>
-        <a href="#" data-owner="{{owner.login}}" data-repository="{{name}}" onclick="showCommits(this)">Show Commits</a>
+        <a href="#" data-owner="{{owner.login}}" data-repository="{{name}}" onclick="getCommits(this)">Show Commits</a>
       {{/each}}
     </script>
 </body>

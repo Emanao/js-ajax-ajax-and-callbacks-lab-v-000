@@ -57,7 +57,7 @@
         <a href="#" data-owner="{{owner.login}}" data-repository="{{name}}" onclick="showCommits(this)">Show Commits</a>
       {{/each}}
     </script>
-    <script id="commits-template" type="text/x-handlebars-template">
+    <script id="commit-template" type="text/x-handlebars-template">
       <p>SHA: ${commits.sha}</p>
       <p>Author: ${commits.author.login}</p>
       <p>Avatar: <img src="${commits.author.avatar_url}"></p>
